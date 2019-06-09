@@ -1,9 +1,9 @@
 export class Film {
   
-    id: number;
-    title:string;
-    year:number;
-    alt: string;
+    id: string = '';
+    title:string = '';
+    year:string = '';
+    alt: string = '';
 /*     rated:string;
     released:string;
     runtime:string;

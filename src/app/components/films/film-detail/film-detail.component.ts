@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Film } from 'src/app/shared/models/film';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -11,11 +11,15 @@ import { map } from 'rxjs/operators';
 export class FilmDetailComponent implements OnInit {
 
   public more: String = 'back';
-  @Input() film: Film = new Film();
-  constructor() { }
+  public film: Film = new Film();
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-
+    this.film.id = this.route.snapshot.paramMap.get("id"),
+    this.film.title = this.route.snapshot.paramMap.get("title"),
+    this.film.year = this.route.snapshot.paramMap.get("year"),
+      console.log('this.route.data', this.route.data);
   }
 
 }

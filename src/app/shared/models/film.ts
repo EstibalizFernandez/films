@@ -1,8 +1,8 @@
 export class Film {
   
-    id: string = '';
+    id: number = null;
     title:string = '';
-    year:string = '';
+    year: number = 0 ;
     alt: string = '';
 /*     rated:string;
     released:string;

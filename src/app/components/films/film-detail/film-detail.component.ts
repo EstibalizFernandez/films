@@ -12,14 +12,20 @@ export class FilmDetailComponent implements OnInit {
 
   public more: String = 'back';
   public film: Film = new Film();
+  private myFavourites = [];
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.film.id = this.route.snapshot.paramMap.get("id"),
+
+    this.film.id = Number(this.route.snapshot.paramMap.get("id")),
     this.film.title = this.route.snapshot.paramMap.get("title"),
-    this.film.year = this.route.snapshot.paramMap.get("year"),
-      console.log('this.route.data', this.route.data);
+    this.film.year = Number(this.route.snapshot.paramMap.get("year"))
   }
 
+  addToFavourites(film: Film) {
+    this.myFavourites.push(film);
+    localStorage.setItem('myFilms', JSON.stringify(this.myFavourites));
+    console.log('localStorage', localStorage);
+  }
 }

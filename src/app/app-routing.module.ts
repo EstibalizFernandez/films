@@ -6,9 +6,10 @@ import { LoginComponent } from './components/misc/login/login.component';
 import { FilmDetailComponent } from './components/films/film-detail/film-detail.component';
 
 const routes: Routes = [
+  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: 'detail/:id', component: FilmDetailComponent},
   {path: 'list', component: FilmsListComponent},
-  {path: 'login', component: LoginComponent},
   {path: '**', component: FilmDetailComponent}
 ];
 

@@ -1,5 +1,7 @@
 <div class="container">
 
+  <a  class="btn btn-primary" (click)="seeFavourites();">See My Favourites</a>
+
   <div class="card-group mt-5">
     <app-film-item *ngFor="let film of films" [film]="film" [more]="more"></app-film-item>
   </div>

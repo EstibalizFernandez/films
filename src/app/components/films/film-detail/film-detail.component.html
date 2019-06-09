@@ -5,7 +5,7 @@
         <div class="card-body">
           <h5 class="card-title">{{film.id}}</h5>
           <p class="card-text">{{film.title}}</p>
-          <a class="btn btn-warning" routerLink="/list">Favourites</a>
+          <a class="btn btn-warning" (click)="addToFavourites(film)">Favourites</a>
           <a class="btn btn-warning" routerLink="/list">Go back</a>
           <span class="fa fa-star checked"></span>
         </div>

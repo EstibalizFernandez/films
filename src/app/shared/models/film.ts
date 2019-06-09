@@ -4,6 +4,7 @@ export class Film {
     title:string = '';
     year: number = 0 ;
     alt: string = '';
+    poster: string = '';
 /*     rated:string;
     released:string;
     runtime:string;
@@ -15,7 +16,6 @@ export class Film {
     language:string;
     country:string;
     awards:string;
-    poster:string;
     imdbrating:number;
     type:string; */
         

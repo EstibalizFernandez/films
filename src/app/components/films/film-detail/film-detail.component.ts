@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Film } from 'src/app/shared/models/film';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-film-detail',
@@ -13,6 +12,8 @@ export class FilmDetailComponent implements OnInit {
   public more: String = 'back';
   public film: Film = new Film();
   private myFavourites = [];
+  private disabled: Boolean = false;
+  public action: String = 'Add to my favourites'
 
   constructor(private route: ActivatedRoute) { }
 
@@ -20,12 +21,14 @@ export class FilmDetailComponent implements OnInit {
 
     this.film.id = Number(this.route.snapshot.paramMap.get("id")),
     this.film.title = this.route.snapshot.paramMap.get("title"),
-    this.film.year = Number(this.route.snapshot.paramMap.get("year"))
+    this.film.year = Number(this.route.snapshot.paramMap.get("year")),
+    this.film.poster = this.route.snapshot.paramMap.get("poster")
   }
 
   addToFavourites(film: Film) {
     this.myFavourites.push(film);
     localStorage.setItem('myFilms', JSON.stringify(this.myFavourites));
-    console.log('localStorage', localStorage);
+    this.action = 'Added to favourites'
+    this.disabled = true;
   }
 }

@@ -1,6 +1,9 @@
 <div class="container">
 
-  <a  class="btn btn-primary" (click)="seeFavourites();">See My Favourites</a>
+  <div class="mt-5">
+    <button  class="btn btn-primary" [disabled]="all" (click)="seeAll();">See The Whole List</button>
+    <button  class="btn btn-primary ml-4" [disabled]="fav" (click)="seeFavourites();">See My Favourites</button>
+  </div>
 
   <div class="card-group mt-5">
     <app-film-item *ngFor="let film of films" [film]="film" [more]="more"></app-film-item>
